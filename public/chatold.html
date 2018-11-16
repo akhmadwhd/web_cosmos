@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+  </head>
+  <body>
+    <div id="app">
+      <div v-for="data in chat">
+        <h3>{{data.user}}</h3>
+        <p>{{data.pesan}}</p>
+      </div>
+
+    </div>
+
+    <input  id="pesanTxt" type="text" name="" placeholder="Masukkan kata" value="">
+    <button id="kirimBtn" type="button" name="button">Kirim</button>
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-database.js"></script>
+    <script type="text/javascript" src="js/firebase-config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vuefire/dist/vuefire.js"></script>
+    <script type="text/javascript" src="js/jquery-3.3.1.js"></script>
+    <script type="text/javascript">
+
+      var db = firebase.database();
+      var userId = "cosmosuser";
+
+      $("#kirimBtn").click(function(){
+          var pesan = $("#pesanTxt").val();
+
+
+          db.ref('chat/' + userId).push({
+            user:userId,
+            pesan:pesan
+          });
+
+
+
+//          $("#diskusiTxt").text(pesan);
+      });
+
+      var app = new Vue({
+       el: '#app',
+       firebase: {
+         chat: db.ref('chat/' + userId).limitToLast(50)
+       }
+     });
+
+
+    </script>
+  </body>
+
+
+</html>
