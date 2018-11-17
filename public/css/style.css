@@ -1,5 +1,5 @@
 a {
-    
+
     font-family: century gothic;
     text-decoration: none;
     color: white;
@@ -22,7 +22,7 @@ body{
 .section{
  font-size: 50px;
  background: url('Picture1.jpg');
- 
+
  padding: 200px 60px;
  display: flex;
     justify-content: center;
@@ -35,7 +35,7 @@ body{
     background-size: cover;
     text-transform: uppercase;
     background-repeat: no-repeat;
-    
+
 
 }
 
@@ -57,4 +57,27 @@ p{
 
 .btn{
     position: center;
+}
+
+#app{
+  text-align:left;
+    margin-top:10 auto;
+    margin:0 auto;
+    margin-bottom:25px;
+    padding:10px;
+    background:#fff;
+    height:270px;
+    width:430px;
+    border:1px solid #ACD8F0;
+    overflow:auto; }
+#msg{
+    width: 60px;
+}
+#lol{
+  text-align:left;
+    padding-top: 10px;
+    margin:0 auto;
+    margin-bottom:25px;
+    width:430px;
+}
 }
