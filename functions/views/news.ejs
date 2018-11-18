@@ -2,21 +2,54 @@
 <html>
 <head>
    <%- include('global/head'); -%>
+      <%- include('global/library'); -%>
 </head>
 <body>
 
         <div class="container-fluid">
              <%- include('global/navigasi'); -%>
 
-            <div class="row">
-                <div class="col-md-6 mt-5">
-                      <h1 align="center"><strong>COMING SOON</strong></h1>
-                </div>
-                <div class="col-md-6 mt-5">
-                      <h1 align="center"><strong>COMING SOON</strong></h1>
+             <div class="row justify-content-md-center">
+                 <div class="col-md-6 col-sm-6">
+                    <section class="text-center">
+                      <div id="app">
+                        <div v-for="data in chat">
+                          <ul>
+                            <li>
+                              <p class="text-left"><strong>{{data.user}}</strong></p>
+                              <p class="text-left">{{data.pengumuman}}</p>
+                                <h6 class="text-left text-white">Kategori : {{data.kategori}}</h6>
+                            </li>
+
+                          </ul>
+
+                        </div>
+
+                    </div>
+                    </section>
                 </div>
             </div>
         </div>
+        <script type="text/javascript">
+        firebase.auth().onAuthStateChanged(function(user) {
+          if (user) {
+
+
+
+
+            var app = new Vue({
+             el: '#app',
+             firebase: {
+               chat: db.ref('news/')
+             }
+           });
+
+
+
+
+          }
+         });
+        </script>
 
 
 
