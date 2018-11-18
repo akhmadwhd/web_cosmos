@@ -29,9 +29,9 @@ body{
 .section{
  font-size: 50px;
  background: url('/img/Picture1.jpg');
- display: flex;
-    justify-content: cente;
-    align-items: ce;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     height: 92vh;
     color: #fff;
     position: relative;
