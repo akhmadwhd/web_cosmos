@@ -8,13 +8,17 @@ a {
 }
 
 
+.home{
+  height: 90vh;
+  color: #fff;
+  position: relative;
 
+}
 
 
 .mylink:hover{
     text-decoration: none;
     color:tomato;
-    background:#333;
     border-left: 2px solid #fff;
     padding-left: 6px;
 }
@@ -34,11 +38,26 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 92vh;
+    height: 90vh;
     color: #fff;
     position: relative;
     background-position: center;
     background-size: cover;
+    text-transform: uppercase;
+
+
+}
+
+.section1{
+ background: #343a40;
+ background-repeat: repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20vh;
+    color: #fff;
+    position: relative;
+    background-position: center;
     text-transform: uppercase;
 
 
@@ -58,6 +77,12 @@ p{
     text-align: center;
     font-size: 20px;
     color: #fff ;
+}
+
+p3 {
+  text-align: center;
+  font-size: 15px;
+  color: #fff ;
 }
 
 p2{
@@ -83,8 +108,8 @@ p1{
     margin-bottom:25px;
     padding:10px;
     background:url('/img/1.png');
-    height:500px;
-    width:600px;
+    height:400px;
+    width:500px;
     border:8px solid #333;
     border-radius: 15px;
     overflow:auto; }
@@ -110,7 +135,8 @@ p1{
     -ms-flex: 0 0 50%;
     flex: 0 0 50%;
     max-width: 50%;
-    margin-top: 50px;
+    margin-top: 30px;
+        height: 90vh;
 }
 
 li{
