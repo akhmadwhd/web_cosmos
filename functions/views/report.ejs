@@ -2,6 +2,7 @@
 <html>
 <head>
    <%- include('global/head'); -%>
+      <%- include('global/library'); -%>
 </head>
 <body>
 
@@ -15,16 +16,11 @@
                         <div v-for="data in chat">
                           <ul>
                             <li>
-                              <p2 class="text-left"><strong>{{data.user}}</strong></p>
-                              <p1 class="text-left">{{data.pesan}}</p>
-
+                              <p class="text-left"><strong>{{data.user}}</strong></p>
+                              <p class="text-left">{{data.laporan}}</p>
+                                <h6 class="text-left text-white">Kategori : {{data.kategori}}</h6>
                             </li>
-                            <br>
-                            <li>
-                              <p2 class="text-left"><strong>{{data.user}}</strong></p>
-                              <p1 class="text-left">{{data.pesan}}</p>
 
-                            </li>
                           </ul>
 
                         </div>
@@ -34,6 +30,26 @@
                 </div>
             </div>
         </div>
+        <script type="text/javascript">
+        firebase.auth().onAuthStateChanged(function(user) {
+          if (user) {
+
+
+
+
+            var app = new Vue({
+             el: '#app',
+             firebase: {
+               chat: db.ref('report/')
+             }
+           });
+
+
+
+
+          }
+         });
+        </script>
 
 
 

@@ -2,6 +2,7 @@
 <html>
 <head>
    <%- include('global/head'); -%>
+   <%- include('global/library'); -%>
 </head>
 <body>
 
@@ -14,21 +15,48 @@
                       <h1><u>Report Page</u></h1>
                       <label >Laporan :</label>
                       <br>
-                      <input  id="lapor" type="text" class="form-control" placeholder="Masukkan pesan anda">
+                      <input  id="laporanTxt" type="text" class="form-control" placeholder="Masukkan pesan anda">
                       <br>
                       <label>Kategori Laporan :</label>
                       <br>
-                      <select class="form-control" id="kat">
+                      <select class="form-control" id="kategoriTxt">
                         <option>Infrastruktur Sekolah</option>
                         <option>Sistem Pendidikan</option>
                      </select>
                      <br>
 
-                     <button id="krm" class="btn btn-danger" type="button">Kirim</button>
+                     <button id="kirimBtn" class="btn btn-danger" type="button">Kirim</button>
                    </section>
                 </div>
             </div>
         </div>
+
+        <script type="text/javascript">
+        let userName;
+
+        firebase.auth().onAuthStateChanged(function(user) {
+         if (user) {
+           userName = user.displayName;
+
+         }
+        });
+
+
+       $("#kirimBtn").click(function(){
+           var laporan = $("#laporanTxt").val();
+           var kategori = $("#kategoriTxt").val();
+
+
+           db.ref('report/').push({
+             user:userName,
+             laporan:laporan,
+             kategori:kategori
+           });
+           $("#pesanTxt").val("");
+        });
+        </script>
+
+
 
 
 
