@@ -17,18 +17,25 @@ app.get('/', function(req,res) {
   res.render("index");
 });
 
-
-
-app.get('/chat_menu', function(req,res) {
-  res.render("chat_menu");
+app.get('/chat_men/:id', function(req,res) {
+  res.send(req.params.id);
 });
 
-app.get('/chat_personal', function(req,res) {
-  res.render("chat_personal");
+app.get('/chat_menu/', function(req,res) {
+  res.render("chat_menu");
+});
+var id_siswa;
+app.get('/chat_personal/:id', function(req,res) {
+  id_siswa = req.params.id;
+  res.render("chat_personal",{id_siswa:id_siswa});
+});
+
+app.get('/chat_siswa/', function(req,res) {
+  res.render("chat_siswa");
 });
 
 app.get('/chat_public', function(req,res) {
-  res.render("chat_publicl");
+  res.render("chat_public");
 });
 
 app.get('/chat_select', function(req,res) {

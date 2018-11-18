@@ -3,6 +3,22 @@ firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
     //console.log(user.displayName);
     $("#userTxt").text("Hey, " + user.displayName);
+    db.ref('/users/' + user.uid + '/nama').set(
+      user.displayName
+    );
+    db.ref('/users/' + user.uid).once('value').then(function(snapshot) { // load 1x
+      //   db.ref('/users/' + user.uid).on('value', function(snapshot) { // load realtime
+          var userData = snapshot.val();
+          if(userData.roles=="admin"){
+              $('#news_link').attr("href", "/news_input");
+              $('#chat_link').attr("href", "/chat_select");
+              $('#report_link').attr("href", "/report");
+          }else if(userData.roles=="siswa"){
+            $('#news_link').attr("href", "/news");
+            $('#chat_link').attr("href", "/chat_siswa");
+            $('#report_link').attr("href", "/report_input");
+          }
+        });
 
   }else{
     location.href = '/login';

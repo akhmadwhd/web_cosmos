@@ -11,22 +11,14 @@
        <div class="row justify-content-md-center">
            <div class="col-md-6 col-sm-6">
                   <div id="app">
-                    <div v-for="data in chat">
+
                       <ul>
-                        <li>
-                          <p2 class="text-left"><strong>{{data.user}}</strong></p>
-                          <p1 class="text-left">{{data.pesan}}</p>
-
-                        </li>
-                        <br>
-                        <li>
-                          <p2 class="text-left"><strong>{{data.user}}</strong></p>
-                          <p1 class="text-left">{{data.pesan}}</p>
-
+                        <li v-for="data in chat">
+                          <a :href="'/chat_personal/' + data['.key']"><p class="text-left"><strong>{{data.nama}}</strong></p></a>
                         </li>
                       </ul>
 
-                    </div>
+                  
 
                 </div>
                 </div>
@@ -38,6 +30,26 @@
 
        <%- include('global/library'); -%>
        <%- include('global/logincheck'); -%>
+       <script type="text/javascript">
+       let userName;
+
+
+
+
+         var app = new Vue({
+          el: '#app',
+          firebase: {
+            chat: db.ref('users/')
+          }
+        });
+
+
+
+
+
+       </script>
+
+</body>
 
 </body>
 

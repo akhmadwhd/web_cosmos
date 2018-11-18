@@ -4,7 +4,7 @@
     ".read" : "root.child('users').child(auth.uid).child('roles').val() === 'admin'",
     ".write" : "root.child('users').child(auth.uid).child('roles').val() === 'admin'",
     "users":{
-      ".read" :  "root.child('users').child(auth.uid).child('roles').val() === 'admin'",
+
       "$uid":{
         ".read": "($uid === auth.uid)",
         ".write": "($uid === auth.uid)",
@@ -15,6 +15,26 @@
           ".write": "($uid === auth.uid) && (!data.exists() || !newData.exists())"
         }
       }
+    },
+    "chat":{
+
+      "public":
+      {
+        ".read": true,
+        ".write": true
+      },
+      "personal":
+      {
+        "$uid":{
+          ".read": "($uid === auth.uid)",
+          ".write": "($uid === auth.uid)",
+
+
+        }
+        
+      }
+
+
     }
   }
 }

@@ -9,7 +9,9 @@ a {
 
 
 
-a:hover{
+
+
+.mylink:hover{
     text-decoration: none;
     color:tomato;
     background:#333;

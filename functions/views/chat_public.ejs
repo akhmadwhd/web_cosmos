@@ -2,6 +2,7 @@
 <html>
 <head>
    <%- include('global/head'); -%>
+    <%- include('global/library'); -%>
 </head>
 <body>
 
@@ -9,22 +10,73 @@
              <%- include('global/navigasi'); -%>
 
              <div class="row justify-content-md-center">
-                 <div class="col-md-6 col-sm-6">
-                    <section class="text-center">
-                      <h1 id="userTxt"></h1>
+               <div class="col-md-6 col-sm-6">
+                 <h1><u>Public Chat</u></h1>
+                 <div id="app">
+                   <div v-for="data in chat">
+                     <ul>
+                       <li>
+                         <p2 class="text-left" name="user" id="user"><strong>{{data.user}}</strong></p>
+                         <p1 class="text-left" name="msg" id="msg">{{data.pesan}}</p>
+                       </li>
+                     </ul>
 
-                      <h2>WELCOME TO COSMOS!</h2>
-                      <p>Your conseling monitoring solution.</p>
-                    </section>
-                </div>
+                   </div>
+
+                 </div>
+                 <div class="input-group mb-3" id="lol">
+                   <input  id="pesanTxt" type="text" class="form-control" placeholder="Masukkan pesan anda" aria-label="Recipient's username" aria-describedby="button-addon2">
+                   <div class="input-group-append">
+                     <button id="kirimBtn" class="btn btn-danger" type="button" id="button-addon2">Kirim</button>
+                   </div>
+                 </div>
+
+               </div>
             </div>
         </div>
 
 
 
 
-       <%- include('global/library'); -%>
+
        <%- include('global/logincheck'); -%>
+       <script type="text/javascript">
+       let userName;
+
+     firebase.auth().onAuthStateChanged(function(user) {
+       if (user) {
+
+         //console.log(user.displayName);
+       //  $("#userTxt").text("Hey, " + user.displayName);
+         userName = user.displayName;
+
+
+         var app = new Vue({
+          el: '#app',
+          firebase: {
+            chat: db.ref('chat/public').limitToLast(50)
+          }
+        });
+
+
+
+
+       }else{
+         location.href = 'login.html';
+       }
+      });
+
+      $("#kirimBtn").click(function(){
+          var pesan = $("#pesanTxt").val();
+
+
+          db.ref('chat/public').push({
+            user:userName,
+            pesan:pesan
+          });
+          $("#pesanTxt").val("");
+       });
+       </script>
 
 </body>
 

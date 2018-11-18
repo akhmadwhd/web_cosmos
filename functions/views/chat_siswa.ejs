@@ -1,23 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Cosmos</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" type="text/css" media="screen" href="../css/bootstrap.min.css" />
-  <link rel="stylesheet" type="text/css" href="../css/style.css">
-
-  <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-app.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-auth.js"></script>
-  <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-database.js"></script>
-  <script type="text/javascript" src="../js/firebase-config.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
-  <script src="https://unpkg.com/vuefire/dist/vuefire.js"></script>
-  <script type="text/javascript" src="../js/jquery-3.3.1.js"></script>
-  <script type="text/javascript">
-    var db = firebase.database();
-  </script>
+  <%- include('global/head'); -%>
+   <%- include('global/library'); -%>
 </head>
 
 
@@ -66,7 +51,7 @@
                var app = new Vue({
                 el: '#app',
                 firebase: {
-                      chat: db.ref('chat/personal/<%= id_siswa %>').limitToLast(50)
+                     chat: db.ref('chat/personal/' + user.uid).limitToLast(50)
                 }
               });
 
@@ -80,7 +65,7 @@
                db.ref('/users/' + user.uid).once('value').then(function(snapshot) { // load 1x
                  //   db.ref('/users/' + user.uid).on('value', function(snapshot) { // load realtime
                      var userData = snapshot.val();
-                     db.ref('chat/personal/<%= id_siswa %>').push({
+                     db.ref('chat/personal/' + user.uid).push({
                        user:userName,
                        pesan:pesan
                      });
