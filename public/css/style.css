@@ -54,7 +54,22 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 20vh;
+    height: 30vh;
+    color: #fff;
+    position: relative;
+    background-position: center;
+    text-transform: uppercase;
+
+
+}
+
+.section2{
+ background: #343a40;
+ background-repeat: repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 10vh;
     color: #fff;
     position: relative;
     background-position: center;
