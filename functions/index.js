@@ -60,6 +60,7 @@ exports.apps = functions.https.onRequest(app);
 
 exports.newUser = functions.auth.user().onCreate((user) => {
   return admin.database().ref("/users/" + user.uid).set({
+    nama : user.displayName,
     email : user.email,
     alamat : '',
     no_hp : '',
@@ -67,7 +68,7 @@ exports.newUser = functions.auth.user().onCreate((user) => {
     line : '',
     instagram : '',
     whatsapp : '',
-    roles : 'member'
+    roles : 'siswa'
   });
 
 });
