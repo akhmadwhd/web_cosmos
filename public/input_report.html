@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Report</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css" />
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <script src="js/bootstrap.min.js"></script>
+  </head>
+  <body>
+    <div class="container-fluid">
+
+
+        <div class="row bg-dark pt-3 pb-3 text-white">
+          <div class="col-md-8 ">
+          <a href="index.html"><img src="/img/logo.jpg" style="width:120px;"></a>
+          </div>
+          <div class="col-md-1">
+          <a href="news.html">News</a>
+          </div>
+          <div class="col-md-1">
+           <a href="chat1.html">Chat</a>
+          </div>
+
+          <div class="col-md-1">
+          <a href="report.html">Report</a>
+          </div>
+          <div class="col-md-1">
+          <a href="javascript:void(0);" onclick="logout();">Logout</a>
+          </div>
+        </div>
+        <br>
+       <div class="row">
+         <div class="col-md-3">
+
+         </div>
+
+         <div class="col-md-6" id="report">
+           <section class="home">
+               <h1><u>Report Page</u></h1>
+               <label >Laporan :</label>
+               <br>
+               <input  id="lapor" type="text" class="form-control" placeholder="Masukkan pesan anda">
+               <br>
+               <label>Kategori Laporan :</label>
+               <br>
+               <select class="form-control" id="kat">
+                 <option>Infrastruktur Sekolah</option>
+                 <option>Sistem Pendidikan</option>
+              </select>
+              <br>
+
+              <button id="krm" class="btn btn-danger" type="button">Kirim</button>
+            </section>
+           </div>
+         </div>
+
+
+         <div class="col-md-3">
+
+         </div>
+       </div>
+
+  </body>
+</html>

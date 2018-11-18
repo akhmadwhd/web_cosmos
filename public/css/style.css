@@ -12,6 +12,7 @@ a {
 a:hover{
     text-decoration: none;
     color:tomato;
+    background:#333;
     border-left: 2px solid #fff;
     padding-left: 6px;
 }
@@ -29,8 +30,8 @@ body{
  font-size: 50px;
  background: url('/img/Picture1.jpg');
  display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: cente;
+    align-items: ce;
     height: 92vh;
     color: #fff;
     position: relative;
@@ -40,7 +41,6 @@ body{
 
 
 }
-
 .gradient {
     background: -moz-linear-gradient(-45deg, #ff000080(255, 0, 251, 0.5) 0%, rgba(51, 38, 38, 0.5) 100%);
     background: -webkit-linear-gradient(-45deg, #ff000080 0%, rgba(51, 38, 38, 0.5) 100%);
@@ -98,6 +98,7 @@ p1{
     width:430px;
 }
 
+<<<<<<< Updated upstream
 .bg-white {
     background-color: #fff!important;
     height: 695px;
@@ -126,6 +127,19 @@ h1{
   text-align: center;
   margin-bottom: 20px;
 }
+=======
+#artikel{
+    text-align:left;
+    margin-top:10 auto;
+    margin:0 auto;
+    margin-bottom:25px;
+    padding:10px;
+    background:#fff;
+    height:270px;
+    width:430px;
+    border:1px solid #ACD8F0;
+    overflow:auto; }
+>>>>>>> Stashed changes
 
 
 }
