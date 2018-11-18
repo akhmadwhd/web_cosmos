@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+
+    <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.1.1/firebaseui.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="css/bootstrap.min.css" />
+    <script src="js/bootstrap.min.js"></script>
+
+  </head>
+  <body>
+    <div class="container">
+
+
+        <div class="mt-5" id="firebaseui-auth-container"></div>
+        <div id="loader">Loading...</div>
+
+
+    </div>
+
+
+
+
+
+    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/5.5.8/firebase-auth.js"></script>
+            <script type="text/javascript" src="js/firebase-config.js"></script>
+
+     <script src="https://www.gstatic.com/firebasejs/ui/3.4.1/firebase-ui-auth__id.js"></script>
+
+
+
+    <!-- <script type="text/javascript" src="js/firebase-config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vuefire/dist/vuefire.js"></script>
+    <script type="text/javascript" src="js/jquery-3.3.1.js"></script> -->
+    <script type="text/javascript">
+
+      var ui = new firebaseui.auth.AuthUI(firebase.auth());
+
+      var uiConfig = {
+  callbacks: {
+    signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+      // User successfully signed in.
+      // Return type determines whether we continue the redirect automatically
+      // or whether we leave that to developer to handle.
+
+
+      return true;
+    },
+    uiShown: function() {
+      // The widget is rendered.
+      // Hide the loader.
+      document.getElementById('loader').style.display = 'none';
+    }
+  },
+  // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+  signInFlow: 'popup',
+  signInSuccessUrl: '<url-to-redirect-to-on-success>',
+  signInOptions: [
+    // Leave the lines as is for the providers you want to offer your users.
+    firebase.auth.EmailAuthProvider.PROVIDER_ID
+
+  ],
+  // Terms of service url.
+  tosUrl: '<your-tos-url>',
+  // Privacy policy url.
+  privacyPolicyUrl: '<your-privacy-policy-url>'
+  };
+  ui.start('#firebaseui-auth-container', uiConfig);
+
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      console.log(user);
+      location.href = '/';
+   }
+    });
+
+
+    </script>
+  </body>
+
+
+</html>

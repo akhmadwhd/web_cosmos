@@ -1,0 +1,22 @@
+<script type="text/javascript">
+firebase.auth().onAuthStateChanged(function(user) {
+  if (user) {
+    //console.log(user.displayName);
+    $("#userTxt").text("Hey, " + user.displayName);
+
+  }else{
+    location.href = '/login';
+  }
+ });
+
+ function logout(){
+    firebase.auth().signOut().then(function() {
+    // Sign-out successful.
+      console.log("Logout Berhasil");
+      location.href ='/login';
+    }).catch(function(error) {
+      // An error happened.
+      console.log("Terjadi Kesalahan : " + error);
+    });
+  }
+</script>

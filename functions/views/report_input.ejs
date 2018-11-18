@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <%- include('global/head'); -%>
+</head>
+<body>
+
+        <div class="container-fluid">
+             <%- include('global/navigasi'); -%>
+
+            <div class="row justify-content-md-center">
+                <div class="col-md-6 col-sm-6">
+                  <section class="home">
+                      <h1><u>Report Page</u></h1>
+                      <label >Laporan :</label>
+                      <br>
+                      <input  id="lapor" type="text" class="form-control" placeholder="Masukkan pesan anda">
+                      <br>
+                      <label>Kategori Laporan :</label>
+                      <br>
+                      <select class="form-control" id="kat">
+                        <option>Infrastruktur Sekolah</option>
+                        <option>Sistem Pendidikan</option>
+                     </select>
+                     <br>
+
+                     <button id="krm" class="btn btn-danger" type="button">Kirim</button>
+                   </section>
+                </div>
+            </div>
+        </div>
+
+
+
+
+       <%- include('global/library'); -%>
+       <%- include('global/logincheck'); -%>
+
+</body>
+
+
+</html>
