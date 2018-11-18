@@ -16,21 +16,46 @@
                       <h1><u>Announcement</u></h1>
                       <label >Pengumuman:</label>
                       <br>
-                      <input  id="lapor" type="text" class="form-control" placeholder="Masukkan pesan anda">
+                      <input  id="pengumumanTxt" type="text" class="form-control" placeholder="Masukkan pesan anda">
                       <br>
                       <label>Kategori:</label>
                       <br>
-                      <select class="form-control" id="#">
+                      <select class="form-control" id="kategoriTxt">
                         <option>Pembayaran</option>
                         <option>Libur</option>
                      </select>
                      <br>
 
-                     <button id="krm" class="btn btn-danger" type="button">Kirim</button>
+                     <button id="kirimBtn" class="btn btn-danger" type="button">Kirim</button>
                    </section>
                 </div>
             </div>
         </div>
+
+        <script type="text/javascript">
+        let userName;
+
+        firebase.auth().onAuthStateChanged(function(user) {
+         if (user) {
+           userName = user.displayName;
+
+         }
+        });
+
+
+       $("#kirimBtn").click(function(){
+           var pengumuman = $("#pengumumanTxt").val();
+           var kategori = $("#kategoriTxt").val();
+
+
+           db.ref('news/').push({
+             user:userName,
+             pengumuman:pengumuman,
+             kategori:kategori
+           });
+           $("#laporanTxt").val("");
+        });
+        </script>
 
 
 

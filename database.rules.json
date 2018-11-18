@@ -40,6 +40,13 @@
       ".read": "auth != null",
       ".write": "auth != null"
 
+    },
+    "news":
+    {
+
+      ".read": "auth != null",
+      ".write": "auth != null"
+
     }
   }
 }
